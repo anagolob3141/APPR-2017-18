@@ -9,12 +9,12 @@ V projektni nalogi bom analizirala gibanje menjalnih tečajev med valutami. Pri 
 Podatki bodo pridobljeni iz spodnje spletne strani:
 * http://www.xe.com/currencytables/?from=EUR&date=2017-11-01
 
-Podatki za vsako denarno enoto bodo zbrani v svoji tabeli naslednje oblike:
-STOLPCI:
-* podatek o tem ali gre za tečaj za menjavo v ali iz dane valute
-* datum
+Zasnova podatkovnega modela:
+* Podatki so v obliki HTML.
+* Podatki za vsako denarno enoto bodo zbrani v svoji tabeli.
+* Tabele bodo oblike: STOLPCI: podatek o tem ali gre za tečaj za menjavo v ali iz dane valute, datum.
 
-CILJ ANALIZE: Primerjava gibanja menjalnih tečajev med posameznimi valutami. Ugotavljanje koreliranosti med menjalnimi tečaji v in iz posamezne valute. 
+CILJ ANALIZE: Primerjava vrednosti menjalnih tečajev med posameznimi valutami. Ugotavljanje koreliranosti med nihanjem tečajev različnih valut, ter koreliranosti med nihanjem menjalnimi tečaji v in iz posamezne valute. (Ekstrapolacija podatkov.)  
 
 
 ## Program
