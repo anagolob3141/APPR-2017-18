@@ -12,7 +12,7 @@ Podatki bodo pridobljeni iz spodnje spletne strani:
 Zasnova podatkovnega modela:
 * Podatki so v obliki HTML.
 * Podatki za vsako denarno enoto bodo zbrani v svoji tabeli.
-* Tabele bodo oblike: STOLPCI: podatek o tem ali gre za tečaj za menjavo v ali iz dane valute, datum.
+* Tabele bodo oblike: STOLPCI: podatek o tem ali gre za tečaj za menjavo v ali iz dane valute, datum, menjalni tečaj.
 
 CILJ ANALIZE: Primerjava vrednosti menjalnih tečajev med posameznimi valutami. Ugotavljanje koreliranosti med nihanjem tečajev različnih valut, ter koreliranosti med nihanjem menjalnimi tečaji v in iz posamezne valute. (Ekstrapolacija podatkov.)  
 
