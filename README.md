@@ -4,7 +4,7 @@ Repozitorij z gradivi pri predmetu APPR v študijskem letu 2017/18
 
 ## Menjalni tečaji med valutami
 
-V projektni nalogi bom analizirala gibanje menjalnih tečajev med valutami. Pri tem si bom kot glavno valuto izbrala euro. Opazovala bom višino menjalnih tečajev za nakup 1 EUR, ter za nakup ene enote druge denarne valute z euri. Analizirani menjalni tečaji bodo izmerjeni za eno leto nazaj od dne zaganjanja programa.
+V projektni nalogi bom analizirala gibanje menjalnih tečajev med valutami. Pri tem si bom kot glavno valuto izbrala euro. Opazovala bom višino menjalnih tečajev za nakup 1 EUR, ter za nakup ene enote druge denarne valute z euri. Analizirani menjalni tečaji bodo izmerjeni v preteklem letu od dne zaganjanja programa.
 
 Podatki bodo pridobljeni iz spodnje spletne strani:
 * http://www.xe.com/currencytables/?from=EUR&date=2017-11-01
