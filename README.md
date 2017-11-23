@@ -4,14 +4,14 @@ Repozitorij z gradivi pri predmetu APPR v študijskem letu 2017/18
 
 ## Menjalni tečaji med valutami
 
-V projektni nalogi bom analizirala gibanje menjalnih tečajev med valutami. Pri tem si bom kot glavno valuto izbrala euro. Opazovala bom višino menjalnih tečajev za nakup 1 EUR, ter za nakup ene enote druge denarne valute z euri. Analizirani menjalni tečaji bodo izmerjeni v zadnjih 30ih dneh pred zaganjanjem programa.
+V projektni nalogi bom analizirala gibanje menjalnih tečajev med valutami. Pri tem si bom kot glavno valuto izbrala euro. Opazovala bom višino menjalnih tečajev za nakup 1 EUR, ter za nakup ene enote druge denarne valute z euri. Analizirani menjalni tečaji bodo izmerjeni za eno leto nazaj od dne zaganjanja programa.
 
 Podatki bodo pridobljeni iz spodnje spletne strani:
 * http://www.xe.com/currencytables/?from=EUR&date=2017-11-01
 
 Zasnova podatkovnega modela:
 * Podatki so v obliki HTML.
-* Podatki za vsako denarno enoto bodo zbrani v svoji tabeli.
+* Podatki za vsako denarno valuto bodo zbrani v svoji tabeli.
 * Tabele bodo oblike: STOLPCI: podatek o tem ali gre za tečaj za menjavo v ali iz dane valute, datum, menjalni tečaj.
 
 CILJ ANALIZE: Primerjava vrednosti menjalnih tečajev med posameznimi valutami. Ugotavljanje koreliranosti med nihanjem tečajev različnih valut, ter koreliranosti med nihanjem menjalnimi tečaji v in iz posamezne valute. (Ekstrapolacija podatkov.)  
