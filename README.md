@@ -14,7 +14,7 @@ Zasnova podatkovnega modela:
 * Podatki za vsako denarno valuto bodo zbrani v svoji tabeli.
 * Tabele bodo oblike: STOLPCI: podatek o tem ali gre za tečaj za menjavo v ali iz dane valute, datum, menjalni tečaj.
 
-CILJ ANALIZE: Primerjava vrednosti menjalnih tečajev med posameznimi valutami. Ugotavljanje koreliranosti med nihanjem tečajev različnih valut, ter koreliranosti med nihanjem menjalnimi tečaji v in iz posamezne valute. (Ekstrapolacija podatkov.)  
+CILJ ANALIZE: Primerjava vrednosti menjalnih tečajev med posameznimi valutami. Ugotavljanje koreliranosti med nihanjem tečajev različnih valut. (Ekstrapolacija podatkov.)  
 
 
 ## Program
