@@ -16,7 +16,7 @@ output:
 source("lib/libraries.r", encoding = "UTF-8")
 ```
 
-# Izbira teme
+# Analiza menjalnih tečajev med valutami
 V projektni nalogi bom analizirala gibanje menjalnih tečajev med valutami. Pri tem si bom kot glavno valuto izbrala euro. Opazovala bom višino menjalnih tečajev za nakup 1 USD, ter za nakup ene enote druge denarne valute z ameriškimi dolarji. Analizirani menjalni tečaji bodo izmerjeni v preteklem letu od dne zaganjanja programa.
 
 ***
