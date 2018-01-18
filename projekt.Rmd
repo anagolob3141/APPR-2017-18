@@ -31,7 +31,7 @@ Podatke smo, v obliki HTML, pridobili iz spletne strani http://www.xe.com/curren
 
 Tabele v CSV datotekah so oblikovane v tidy data po vzorcu, ki je prikazan spodaj:
 ```{r tabela, echo=FALSE, message=FALSE}
-tecaji1.tretjina2016 <- read.csv("podatki\\tecaji1tretjina.csv")
+tecaji1.tretjina2016 <- read_csv("podatki/tecaji1tretjina.csv")
 head(tecaji1.tretjina2016)
 ```
 ***
