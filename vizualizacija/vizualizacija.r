@@ -1,11 +1,12 @@
 # 3. faza: Vizualizacija podatkov
 library(reshape2)
 library(ggplot2)
+library(readr)
 
 # Uvoz podatkov iz CSV tatotek in njihovo združevanje:
-tecaji1.tretjina2016 <- read.csv("podatki\\tecaji1tretjina.csv")
-tecaji2.tretjina2016 <- read.csv("podatki\\tecaji2tretjina.csv")
-tecaji3.tretjina2016 <- read.csv("podatki\\tecaji3tretjina.csv")
+tecaji1.tretjina2016 <- read_csv("podatki/tecaji1tretjina.csv")
+tecaji2.tretjina2016 <- read_csv("podatki/tecaji2tretjina.csv")
+tecaji3.tretjina2016 <- read_csv("podatki/tecaji3tretjina.csv")
 tecaji <- rbind(tecaji1.tretjina2016, tecaji2.tretjina2016, tecaji3.tretjina2016)
 
 # Podatke v tabeli grupira po posameznih valutah:
