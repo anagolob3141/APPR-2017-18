@@ -48,21 +48,10 @@ najpomembnejse.valute2 <- subset(tecaji.po.valutahR, variable %in% najpomembnejs
 
 # Računanje standardnega odklona od povprečja:
 
-odkloni.povprecje <- function(tecaji.po.valutah, imena){
-  odkloni <- c(round(mean(tecaji.po.valutah[,1]),4), round(sd(tecaji.po.valutah[,1],4)))
-  for(i in 2:ncol(tecaji.po.valutah)){
-    povprecje <- round(mean(tecaji.po.valutah[,i]),4)
-    odkl <- round(sd(tecaji.po.valutah[,i]),4)
-    odkloni <- rbind(odkloni, c(povprecje, odkl))
-  }
-  
-  odkloni <- cbind(imena[1:length(imena)], odkloni)
-  odkloni <- as.data.frame(odkloni)
-  rownames(odkloni) <- imena[1:length(imena)]
-  colnames(odkloni) <- c("valuta", "povprecje", "odklon")
-  urejeni.odkloni <- odkloni[order(odkloni$odklon),]
-  return(urejeni.odkloni)
-}
-najpomembnejse.valute <- tecaji.po.valutah[c("EUR", "GBP", "CHF", "CAD", "AUD","ZAR", "JPY")]
-urejeni.odkloni <- odkloni.povprecje(najpomembnejse.valute, c("EUR", "GBP", "CHF", "CAD", "AUD","ZAR", "JPY"))
+tecaji.po.valutah.tidy <- melt(tecaji.po.valutah, id.vars = "datumi",
+                               variable.name = "valuta", value.name = "vrednost")
+urejeni.odkloni <- tecaji.po.valutah.tidy %>%
+  filter(valuta %in% c("EUR", "GBP", "CHF", "CAD", "AUD")) %>%
+  group_by(valuta) %>% summarise(povprecje = mean(vrednost), odklon = sd(vrednost)) %>%
+  arrange(odklon)
 
