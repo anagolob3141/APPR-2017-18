@@ -33,7 +33,7 @@ imena.valut <- tabela.za.kratice[, 1:2] %>% unique()
 if (!file.exists("podatki/tecaji1tretjina.csv")){
   datumi1.tretjina2016 <- seq(as.Date("2016-01-01"), as.Date("2016-04-30"), by="days")
   tabela1.tretjina2016 <- uvoziPodatke(datumi1.tretjina2016)
-  uredi.tabelo(tabela1.tretjina2016, "podatki\\tecaji1tretjina.csv")
+  uredi.tabelo(tabela1.tretjina2016, "podatki/tecaji1tretjina.csv")
 }
 
 if (!file.exists("podatki/tecaji2tretjina.csv")){
@@ -42,7 +42,7 @@ if (!file.exists("podatki/tecaji2tretjina.csv")){
   uredi.tabelo(tabela2.tretjina2016, "podatki/tecaji2tretjina.csv")
 }
 
-if (!file.exists("podatki\\tecaji3tretjina.csv")){
+if (!file.exists("podatki/tecaji3tretjina.csv")){
   datumi3.tretjina2016 <- seq(as.Date("2016-09-01"), as.Date("2016-12-31"), by="days")
   tabela3.tretjina2016 <- uvoziPodatke(datumi3.tretjina2016)
   uredi.tabelo(tabela3.tretjina2016, "podatki/tecaji3tretjina.csv")
