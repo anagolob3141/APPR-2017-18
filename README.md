@@ -12,10 +12,10 @@ Zasnova podatkovnega modela:
 * Večji del podatkov bo po zajetju shranjeni v CSV datoteko z imenom tecajiPoMesecih
 * Tabele bodo oblike:
 
-tabela 1: kratica valute, datum, višina tečaja
-tabela 2: kratica valute, ime valute
-tabela 3: kratica valute, drzava
-tabela 4: kratica valute, povprecje, normiran.odklon                      
+tabela 1: kratica valute, datum, višina tečaja <br />
+tabela 2: kratica valute, ime valute <br />
+tabela 3: kratica valute, drzava <br />
+tabela 4: kratica valute, povprecje, normiran.odklon                    
 
 CILJ ANALIZE: Primerjava vrednosti menjalnih tečajev med posameznimi valutami. Opazovanje koreliranosti med stabilnostjo valut, ki jih uporabljajo v državah različnih tipov (npr. države v rozvoju, gospodarske velesile...).
 
