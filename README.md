@@ -1,21 +1,23 @@
-# Analiza podatkov s programom R, 2017/18
+# Devizni tečaji
+## Projekt pri predmetu Analiza podatkov s programom R
 
-Repozitorij z gradivi pri predmetu APPR v študijskem letu 2017/18
+V projektni nalogi bom analizirala gibanje menjalnih tečajev med valutami. Najprej bo predstavljeno, katere valute se uporabljajo v posameznih državah. Nato bo kot glavna valuta izbran Ameriški dolar. Opazovali bom višino in gibanje menjalnih tečajev za nakup 1 USD z drugimi denarnimi valutami.
 
-## Menjalni tečaji med valutami
-
-V projektni nalogi bom analizirala gibanje menjalnih tečajev med valutami. Pri tem si bom kot glavno valuto izbrala euro. Opazovala bom višino menjalnih tečajev za nakup 1 EUR, ter za nakup ene enote druge denarne valute z euri. Analizirani menjalni tečaji bodo izmerjeni v preteklem letu od dne zaganjanja programa.
-
-Podatki bodo pridobljeni iz spodnje spletne strani:
+Podatki bodo pridobljeni iz spodnjih spletnih strani:
 * http://www.xe.com/currencytables/?from=EUR&date=2017-11-01
+* https://en.wikipedia.org/wiki/List_of_circulating_currencies
 
 Zasnova podatkovnega modela:
 * Podatki so v obliki HTML.
-* Podatki za vsako denarno valuto bodo zbrani v svoji tabeli.
-* Tabele bodo oblike: STOLPCI: podatek o tem ali gre za tečaj za menjavo v ali iz dane valute, datum, menjalni tečaj.
+* Večji del podatkov bo po zajetju shranjeni v CSV datoteko z imenom tecajiPoMesecih
+* Tabele bodo oblike:
 
-CILJ ANALIZE: Primerjava vrednosti menjalnih tečajev med posameznimi valutami. Ugotavljanje koreliranosti med nihanjem tečajev različnih valut. (Ekstrapolacija podatkov.)  
+tabela 1: kratica valute, datum, višina tečaja
+tabela 2: kratica valute, ime valute
+tabela 3: kratica valute, drzava
+tabela 4: kratica valute, povprecje, normiran.odklon                      
 
+CILJ ANALIZE: Primerjava vrednosti menjalnih tečajev med posameznimi valutami. Opazovanje koreliranosti med stabilnostjo valut, ki jih uporabljajo v državah različnih tipov (npr. države v rozvoju, gospodarske velesile...).
 
 ## Program
 
@@ -27,8 +29,7 @@ se izvedejo programi, ki ustrezajo drugi, tretji in četrti fazi projekta:
 * napredna analiza podatkov: `analiza/analiza.r`
 
 Vnaprej pripravljene funkcije se nahajajo v datotekah v mapi `lib/`. Podatkovni
-viri so v mapi `podatki/`. Zemljevidi v obliki SHP, ki jih program pobere, se
-shranijo v mapo `../zemljevidi/` (torej izven mape projekta).
+viri so v mapi `podatki/`.
 
 ## Potrebni paketi za R
 
