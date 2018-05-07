@@ -38,7 +38,6 @@ world$Country <- toupper(world$drzava)
 ###########################################################
 # Zemljevid, ki prikazuje razporejenost valut po državah:
 valute.drzav.s.skupinami <- subset(valute.drzav.s.skupinami, !duplicated(valute.drzav.s.skupinami[,1]))
-View(valute.drzav.s.skupinami)
 valute.centri <- left_join(centri,valute.drzav.s.skupinami, by="drzava")
 valute.po.svetu <- left_join(world,valute.drzav.s.skupinami, by="drzava")
 
