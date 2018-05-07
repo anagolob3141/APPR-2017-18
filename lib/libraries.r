@@ -1,11 +1,13 @@
 library(knitr)
 library(dplyr)
-library(readr)
 library(rvest)
-library(gsubfn)
 library(ggplot2)
 library(reshape2)
 library(shiny)
-
-# Uvozimo funkcije za pobiranje in uvoz zemljevida.
-source("lib/uvozi.zemljevid.r", encoding = "UTF-8")
+library(reshape2)
+library(rvest)
+library(ggmap)
+library(plotly)
+library(reshape2)
+library(XML)
+library(readr)
