@@ -1,23 +1,24 @@
 # Devizni tečaji
 ## Projekt pri predmetu Analiza podatkov s programom R
 
-V projektni nalogi bom analizirala gibanje menjalnih tečajev med valutami. Najprej bo predstavljeno, katere valute se uporabljajo v posameznih državah. Nato bo kot glavna valuta izbran Ameriški dolar. Opazovali bom višino in gibanje menjalnih tečajev za nakup 1 USD z drugimi denarnimi valutami.
+V projektni nalogi bom analizirala gibanje menjalnih tečajev med valutami. Najprej bo predstavljeno, katere valute se uporabljajo v posameznih državah, ter nekaj splošnih zanimivosti o valutnih tečajih. Nato bo kot glavna valuta izbran Ameriški dolar. Opazovali bom višino in gibanje menjalnih tečajev za nakup 1 USD z drugimi denarnimi valutami.
 
 Podatki bodo pridobljeni iz spodnjih spletnih strani:
 * http://www.xe.com/currencytables/?from=EUR&date=2017-11-01
 * https://en.wikipedia.org/wiki/List_of_circulating_currencies
+* https://en.wikipedia.org/wiki/Developing_country
 
 Zasnova podatkovnega modela:
 * Podatki so v obliki HTML.
 * Večji del podatkov bo po zajetju shranjeni v CSV datoteko z imenom tecajiPoMesecih
 * Tabele bodo oblike:
 
-tabela 1: kratica valute, datum, višina tečaja <br />
+tabela 1: kratica valute, datum, višina tečaja, skupina <br />
 tabela 2: kratica valute, ime valute <br />
-tabela 3: kratica valute, drzava <br />
-tabela 4: kratica valute, povprecje, normiran.odklon                    
+tabela 3: kratica valute, drzava, skupina <br />
+tabela 4: kratica valute, povprecje, normiran.odklon, skupina                    
 
-CILJ ANALIZE: Primerjava vrednosti menjalnih tečajev med posameznimi valutami. Opazovanje koreliranosti med stabilnostjo valut, ki jih uporabljajo v državah različnih tipov (npr. države v rozvoju, gospodarske velesile...).
+CILJ ANALIZE: Primerjava vrednosti menjalnih tečajev med posameznimi valutami. Opazovanje koreliranosti med stabilnostjo valut, ki jih uporabljajo v državah različnih skupin (npr. države v rozvoju, gospodarske velesile...).
 
 ## Program
 
