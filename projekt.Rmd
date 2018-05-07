@@ -37,6 +37,7 @@ Poleg valutnih tečajev si bomo v začetku analize ogledali še razpršenost pos
 
 ```{r vizualizacija, echo=FALSE, message=FALSE, warning=FALSE}
 source("vizualizacija/vizualizacija.r", encoding = "UTF-8")
+source("analiza/analiza.r", encoding = "UTF-8")
 ```
 Tukaj bomo obravnavali kar 165 različnih valut, s katerimi se trenutno da trgovati v posameznih državah sveta.V spodnji tabeli so prikazane valute, ki se uporavljajo v več kot zgolj eni sami državi. Pri tem je na prvem mestu Euro, saj se uporablja v večini europskih držav, sledi pa mu Ameriški dolar.
 
