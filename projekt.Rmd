@@ -84,5 +84,5 @@ Preostanek analize se nahaja v Shiny aplikaciji.
 ***
 
 ```{r shiny, echo = FALSE, warning=FALSE}
-shinyAppDir("shiny", options=list(width=1500))
+shinyAppDir("shiny", options=list(width="100%", height=800))
 ```
