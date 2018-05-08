@@ -27,10 +27,10 @@ names(tabela.za.kratice) <- c("kratica", "ime", "nakupni", "prodajni", "datum")
 imena.valut <- tabela.za.kratice[, 1:2] %>% unique()
 
 # Če datoteka s podatki še ne obstaja, jo ustvarimo:
-if (!file.exists("podatki\\tecajiPoMesecih.csv")){
+if (!file.exists("podatki/tecajiPoMesecih.csv")){
   datumiPoMesecih <- seq(as.Date("1998-01-01"), as.Date("2018-01-01"), by="months")
   tabela1.tecajiPoMesecih <- uvoziPodatke(datumiPoMesecih)
-  uredi.tabelo(tabela1.tecajiPoMesecih, "podatki\\tecajiPoMesecih.csv")
+  uredi.tabelo(tabela1.tecajiPoMesecih, "podatki/tecajiPoMesecih.csv")
 }
 
 #######################################################################################################
@@ -91,7 +91,7 @@ valute.po.skupinah <- valute.po.skupinah[!duplicated(valute.po.skupinah$valuta),
 
 
 # Preoblikovanje podatkov iz različnih virov, ki smo jih prido:
-tecaji <- read_csv("podatki\\tecajiPoMesecih.csv")
+tecaji <- read_csv("podatki/tecajiPoMesecih.csv")
 tecaji.po.valutah <- subset(tecaji, kratica=="EUR"& tip == "nakupni")[,c(3,5)]
 imena <- c("datumi","EUR")
 for(i in 3:nrow(imena.valut)){
