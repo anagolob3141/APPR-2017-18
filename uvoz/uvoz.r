@@ -62,9 +62,9 @@ valute.po.drzavah$drzava <- gsub("United Kingdom","UK",valute.po.drzavah$drzava)
 #2. Uvoz seznama drzav v razvoju po International Monetary "Fund's World Economic Outlook Report, April 2015"
 #Podatki so uvoženi iz spletne strani: https://en.wikipedia.org/wiki/Developing_country
 
-url2 <- html("https://en.wikipedia.org/wiki/Developing_country")
-v.razvoju <- url2 %>% html_nodes(".column-count-4 a") %>% html_text()
-
+url2 <- "https://en.wikipedia.org/wiki/Developing_country"
+stran2 <- html_session(url2) %>% read_html()
+v.razvoju <- stran2 %>% html_nodes(".column-count-4 a") %>% html_text()
 drzave.v.razvoju <- subset(valute.po.drzavah, drzava %in% v.razvoju)
 
 
