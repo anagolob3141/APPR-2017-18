@@ -10,7 +10,7 @@ output:
 runtime: shiny
 ---
 
-```{r setup, echo=FALSE, results='hide', message=FALSE}
+```{r setup, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
 # Uvoz vseh potrebnih knjižnic
 source("lib/libraries.r", encoding = "UTF-8")
 ```
@@ -18,7 +18,7 @@ source("lib/libraries.r", encoding = "UTF-8")
 # Izbira teme
 
 ***
-```{r uvoz, echo=FALSE, message=FALSE}
+```{r uvoz, echo=FALSE, message=FALSE, warning=FALSE}
 source("uvoz/uvoz.r", encoding = "UTF-8")
 ```
 
@@ -45,7 +45,7 @@ Tukaj bomo obravnavali kar 165 različnih valut, s katerimi se trenutno da trgov
 pogoste.valute
 ```
 
-```{r zemljevid1, echo=FALSE,out.width = '100%', message=FALSE, fig.align='center', fig.cap=''}
+```{r zemljevid1, echo=FALSE,out.width = '100%', message=FALSE, warning=FALSE, fig.align='center', fig.cap=''}
 valute.svet <- ggplot() + geom_polygon(data = valute.po.svetu,
                                         aes(x=long, y = lat, group = group,fill=valuta)) + coord_fixed(1.3) +
                                         theme(legend.position="none") +
@@ -62,7 +62,7 @@ Zgornji zemljevid prikazuje katere valute se uporabljajo v posameznih državah. 
 Na naslednjem zemljevidu je označeno število valut, s katerimi se trguje v posameznih državah. V državah, ki so na zemljevidu izpisane z rdečo barvo imajo več kot eno denarno valuto. Med vsemi svetovnimi državami izstopa Zimbabve, v katerem se uporablja kar osem različnih denarnih valut.
 
 
-```{r zemljevid2, echo=FALSE, out.width = '100%', message=FALSE, fig.align='center', fig.cap=''}
+```{r zemljevid2, echo=FALSE, out.width = '100%', message=FALSE, warning=FALSE, fig.align='center', fig.cap=''}
 vec.valut.svet <- ggplot() + geom_polygon(data = vec.valut.drzave,
                                         aes(x=long, y = lat, group = group,fill=št.valut)) + coord_fixed(1.3) +
   ggtitle("Število nacionalnih valut po državah") +
@@ -81,6 +81,6 @@ vec.valut.svet
 Preostanek analize se nahaja v Shiny aplikaciji.
 ***
 
-```{r shiny, echo = FALSE}
+```{r shiny, echo = FALSE, warning=FALSE}
 shinyAppDir("shiny", options=list(width=1500))
 ```
