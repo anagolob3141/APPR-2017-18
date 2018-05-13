@@ -31,17 +31,24 @@ Podatke smo, v obliki HTML, pridobili iz spletnih strani:
 
 Zajeti podatki popisujejo gibanje valutnih tečajev za nakup 1 USD za vse svetovna valute od začetka leta 1998 do začetka leta 2018. Višine tečajev so bile zabeležene vsak 1. dan v mesecu.
 
-Poleg valutnih tečajev si bomo v začetku analize ogledali še razpršenost posameznih valut po državah. 
+Poleg valutnih tečajev smo zajeli tudi podatke o tem katere valute uporabljajo posamezne države. Valute smo tudi razdelili v 3 skupine: 
 
+1. Valute v katerih se največ trguje
+2. Valute držav v razvoju
+3. Preostale valute
+
+Na ta način smo želeli opazovati ali so valute znotraj posamezne skupine bolj korelirane. Države smo uvrskili v skupino držav v razvoju glede na seznam, ki je bil določen po "International Monetary Fund's World Economic Outlook Report" aprila 2015.
 ***
 
 # Analiza in vizualizacija podatkov
-
+Valute predstavljajo denarno enoto neke države v kateri velja za zakonito plačilni sredstvo in se porabljajo kot sredstvo menjave vrednosti.
+Danes za vrednost valut in tudi za tečaje oz. razmerja med različnimi denarnimi valutami skrbijo centralne banke, ki se ukvarjajo s fiskalnimi politikami države in z uravnavanjem, prilagajanjem in tudi opazovanjem raznih finančnih mehanizmov. Pri tem je na prvem mestu Euro, kar ni presenetljivo, saj je valuta že v zasnovi mednarodna, zasnovana za poenotenje valute znotraj Europske unije. Podobno velja za valuto XCD - Vzhodnokaribski dolar, ki je valuta osmih držav Organizacije vzhodnokaribskih držav. Ter valuti zahodnoafriški (XOF) oz. srednjeafriški frank (XAF).
 ```{r vizualizacija, echo=FALSE, message=FALSE, warning=FALSE}
 source("vizualizacija/vizualizacija.r", encoding = "UTF-8")
 source("analiza/analiza.r", encoding = "UTF-8")
 ```
-Tukaj bomo obravnavali kar 165 različnih valut, s katerimi se trenutno vahko trguje v posameznih državah sveta.Na spodnjem grafu so prikazane valute, ki se uporavljajo v več kot zgolj eni sami državi. Pri tem je na prvem mestu Euro, saj se uporablja v večini europskih držav, sledi pa mu Ameriški dolar.
+V analizi bomo obravnavali preko 165 različnih valut s katerimi se trenutno lahko trguje v posameznih državah sveta. Na grafu spodaj si najprej oglejmo mednarodno razširjene valute, torej tiste, ki se uporavljajo v več kot zgolj eni sami državi. 
+
 
 ```{r graf1, echo=FALSE, message=FALSE, warning=FALSE}
 graf1 <- plot_ly() %>%
@@ -52,6 +59,10 @@ graf1 <- plot_ly() %>%
   )
 graf1 
 ```
+
+Pri tem je na prvem mestu Euro, kar ni presenetljivo, saj je valuta že v zasnovi mednarodna, zasnovana za poenotenje valute znotraj Europske unije. Podobno velja za valuto XCD - Vzhodnokaribski dolar, ki je valuta osmih držav Organizacije vzhodnokaribskih držav. Ter valuti zahodnoafriški (XOF) oz. srednjeafriški frank (XAF).
+
+Na zgornjem grafu prav tako lahko opazimo vseh sedem valut, ki smo jih uvrstili v skupino največjih. 
 
 ```{r zemljevid1, echo=FALSE,out.width = '100%',height=40000, message=FALSE, warning=FALSE, fig.align='center', fig.cap=''}
 valute.svet <- ggplot() + geom_polygon(data = valute.po.svetu,
@@ -65,7 +76,7 @@ valute.svet <- ggplot() + geom_polygon(data = valute.po.svetu,
             size = 1)
 valute.svet
 ```
-Zgornji zemljevid prikazuje katere valute se uporabljajo v posameznih državah.  Za države, v katerih se uporablja večje število valut, je na zemljevidu označena zgolj ena sama. Zato dodajamo že spodnjo preglednico, ki izpostavlja omenjene dtžave.
+Zgornji zemljevid prikazuje katere valute se uporabljajo v posameznih državah.  Za države, v katerih se uporablja večje število valut, je na zemljevidu označena zgolj ena sama. Zato dodajamo že spodnjo preglednico, ki izpostavlja omenjene države.
 
 ```{r tabela, echo=FALSE, out.width = '100%', message=FALSE, warning=FALSE, fig.align='center', fig.cap=''}
 drzave.z.vec.valutami
