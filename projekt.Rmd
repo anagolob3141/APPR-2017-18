@@ -42,13 +42,14 @@ Na ta način smo želeli opazovati ali so valute znotraj posamezne skupine bolj 
 
 # Analiza in vizualizacija podatkov
 Valute predstavljajo denarno enoto neke države v kateri velja za zakonito plačilni sredstvo in se porabljajo kot sredstvo menjave vrednosti.
-Danes za vrednost valut in tudi za tečaje oz. razmerja med različnimi denarnimi valutami skrbijo centralne banke, ki se ukvarjajo s fiskalnimi politikami države in z uravnavanjem, prilagajanjem in tudi opazovanjem raznih finančnih mehanizmov. Pri tem je na prvem mestu Euro, kar ni presenetljivo, saj je valuta že v zasnovi mednarodna, zasnovana za poenotenje valute znotraj Europske unije. Podobno velja za valuto XCD - Vzhodnokaribski dolar, ki je valuta osmih držav Organizacije vzhodnokaribskih držav. Ter valuti zahodnoafriški (XOF) oz. srednjeafriški frank (XAF).
+
+Danes za vrednost valut in tudi za tečaje oz. razmerja med različnimi denarnimi valutami skrbijo centralne banke, ki se ukvarjajo s fiskalnimi politikami države in z uravnavanjem, prilagajanjem in tudi opazovanjem raznih finančnih mehanizmov. Na gibanje vrednosti valut vplivajo različni ekonomski, državni in poslovni parametri, ki vplivajo tudi na spreminanje povpraševanja po valutah.
+
 ```{r vizualizacija, echo=FALSE, message=FALSE, warning=FALSE}
 source("vizualizacija/vizualizacija.r", encoding = "UTF-8")
 source("analiza/analiza.r", encoding = "UTF-8")
 ```
 V analizi bomo obravnavali preko 165 različnih valut s katerimi se trenutno lahko trguje v posameznih državah sveta. Na grafu spodaj si najprej oglejmo mednarodno razširjene valute, torej tiste, ki se uporavljajo v več kot zgolj eni sami državi. 
-
 
 ```{r graf1, echo=FALSE, message=FALSE, warning=FALSE}
 graf1 <- plot_ly() %>%
@@ -84,7 +85,7 @@ drzave.z.vec.valutami
 Na zgornjem seznamu je zelo zanimiva država Zimbabve s kar osmimi različnimi valutami. Večina valut je v Zimbabve dovoljena za trgovalne namene, ker veliko trgujejo s Kitajsko in drugimi sosednjimi državami, imjo večje število valut.
 Zimbabve je včasih imelo svojo državno valuto Zimbabvijski dolar (ZWD). Vendar je med letoma 2000 in 2009 po veliki inflaciji prišlo do zloma njihove nacionalne valute. Kot posledica so leta 2009 začeli dovoljevati tudi trgovanje z Ameriškimi dolarji v katerih se danes največ trguje.
 
-Pri drugih državah je večje število valut posledica različnih dejavnikov. Opaziti je zgodovinski vpliv, vpliv povezovanja med različnimi državami. Polek tega pa je na sesznamu kar nekaj manjšik otoških držav, ki se preživjlajo s turizmom.
+Pri drugih državah je večje število valut posledica različnih dejavnikov. Opaziti je zgodovinski vpliv, vpliv povezovanja med različnimi državami. Poleg tega pa je na sesznamu kar nekaj manjšik otoških držav, ki se preživjlajo s turizmom.
 
 Spodja amplikacija želi zajeti dinamiko gibanja deviznih tečajov in omogočiti opazovanje koreliranosti med gibanji vrednosti različnih valut.
 ```{r graf2, echo=FALSE, message=FALSE, warning=FALSE}
