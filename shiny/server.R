@@ -62,41 +62,12 @@ shinyServer(function(input, output) {
     
   })
   
-  output$gra3 <- renderPlot({
-    
-    if (input$primer == "Valute vseh držav"){ 
-      izberi <- "najvecje, druge, v razvoju"
-      izbrane.valute.po.svetu <- valute.po.svetu
-      izbrani.centri <- valute.centri
-    } else if (input$primer == "Valute v katerih se največ trguje"){
-      izberi <- "najvecje"
-      izbrane.valute.po.svetu <- subset(valute.po.svetu, skupina %in% izberi)
-      izbrani.centri <- subset(valute.centri, skupina %in% izberi)
-    } else {
-      izberi <- "v razvoju"
-      izbrane.valute.po.svetu <- subset(valute.po.svetu, skupina %in% izberi)
-      izbrani.centri <- subset(valute.centri, skupina %in% izberi)
-    }
-    
-    
-    valute.svet <- ggplot() + geom_polygon(data = valute.po.svetu ,
-                                           aes(x=long, y = lat, group = group,fill=valuta)) + coord_fixed(1.3) +
-      theme(legend.position="none") +
-      geom_text(data= izbrani.centri,
-                aes(x = x, y = y, label = valuta),
-                alpha = 1,
-                color = "black",
-                size = 2)
-    
-    valute.svet
-  })
   
   
   output$opis1 <- renderText({"Graf prikazuje gibanje tečajev za nakup 1 USD s preostalimi svetovnimi valutami."})
   output$opis2 <- renderText({"Za mero nihanja valut v obdobju od začetka leta 1998 do začetka leta 2018 
     smo uporabili standatdni odklon od povprečja in ga normirali z povprečno vrednostjo valutnih tečajev. 
     Na zemljevidu so z različnimi barvami označene valute držav v razvoju ter največje svetovne valute."})
-  output$opis3 <- renderText({"Zgornji zemljevid prikazuje katere so nacionalne valute v državah po svetu."})
 })
 
 
