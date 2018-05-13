@@ -81,7 +81,12 @@ Zgornji zemljevid prikazuje katere valute se uporabljajo v posameznih državah. 
 ```{r tabela, echo=FALSE, out.width = '100%', message=FALSE, warning=FALSE, fig.align='center', fig.cap=''}
 drzave.z.vec.valutami
 ```
+Na zgornjem seznamu je zelo zanimiva država Zimbabve s kar osmimi različnimi valutami. Večina valut je v Zimbabve dovoljena za trgovalne namene, ker veliko trgujejo s Kitajsko in drugimi sosednjimi državami, imjo večje število valut.
+Zimbabve je včasih imelo svojo državno valuto Zimbabvijski dolar (ZWD). Vendar je med letoma 2000 in 2009 po veliki inflaciji prišlo do zloma njihove nacionalne valute. Kot posledica so leta 2009 začeli dovoljevati tudi trgovanje z Ameriškimi dolarji v katerih se danes največ trguje.
 
+Pri drugih državah je večje število valut posledica različnih dejavnikov. Opaziti je zgodovinski vpliv, vpliv povezovanja med različnimi državami. Polek tega pa je na sesznamu kar nekaj manjšik otoških držav, ki se preživjlajo s turizmom.
+
+Spodja amplikacija želi zajeti dinamiko gibanja deviznih tečajov in omogočiti opazovanje koreliranosti med gibanji vrednosti različnih valut.
 ```{r graf2, echo=FALSE, message=FALSE, warning=FALSE}
 gibanjaTecajev <- ggplot(tecajiSPovprecjem, aes(x= povprecje, y= tecaj, frame = datum, color=kratica)) +
   ggtitle("Gibanje valutnih tečajev v času") +
@@ -96,10 +101,6 @@ gibanjaTecajev <- ggplot(tecajiSPovprecjem, aes(x= povprecje, y= tecaj, frame = 
 gibanjaTecajev
 #gg_animate(gibanjaTecajev)
 ```
-
-***
-
-Preostanek analize se nahaja v Shiny aplikaciji.
 ***
 
 ```{r shiny, echo = FALSE, warning=FALSE}
