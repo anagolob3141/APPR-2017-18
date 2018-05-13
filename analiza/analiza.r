@@ -39,5 +39,23 @@ odkloni.po.skupinah <- odkloni.po.skupinah[,c(1,2,3,5,4)]
 # 
 # povprecje
 
+# Amplikacija, ki prikazuje gibanje valutnih tečajev skozi čas
+tecajiSPovprecjem <- merge(x=tecaji, y=odkloni.po.skupinah[,c(1,2)], by.x="kratica", by.y="valuta")
+
+# GRAF SE NAHAJA V DATOTEKI   projekt.rmd
+# gibanjaTecajev <- ggplot(tecajiSPovprecjem, aes(x= povprecje, y= tecaj, frame = datum, color=kratica)) +
+#   ggtitle("Gibanje valutnih tečajev") +
+#   xlab("Povprečna višina tečaja") +
+#   ylab("Visina tecaja glede na čas") +
+#   theme(legend.position="none") +
+#   geom_point() +
+#   geom_text(data=tecajiSPovprecjem,
+#             aes(x= povprecje, y= tecaj, label=kratica),
+#             size = 1)
+# gibanjaTecajev
+
+#gg_animate(gibanjaTecajev)
+
+
 
 
