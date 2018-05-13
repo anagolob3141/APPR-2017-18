@@ -1,0 +1,96 @@
+---
+title: "Poročilo pri predmetu Analiza podatkov s programom R"
+author: "Ana Golob"
+output:
+  html_document: default
+  pdf_document:
+    includes:
+      in_header: lib/styles.sty
+    latex_engine: xelatex
+runtime: shiny
+---
+
+```{r setup, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
+# Uvoz vseh potrebnih knjižnic
+source("lib/libraries.r", encoding = "UTF-8")
+```
+
+# Izbira teme
+
+***
+
+```{r uvoz, echo=FALSE, message=FALSE, warning=FALSE}
+source("uvoz/uvoz.r", encoding = "UTF-8")
+```
+
+Podatke smo, v obliki HTML, pridobili iz spletnih strani:
+
+* http://www.xe.com/currencytables/?from=USD&date= (datumi so različni),
+* https://en.wikipedia.org/wiki/List_of_circulating_currencies,
+* https://en.wikipedia.org/wiki/Developing_country.
+
+Zajeti podatki popisujejo gibanje valutnih tečajev za nakup 1 USD za vse svetovna valute od začetka leta 1998 do začetka leta 2018. Višine tečajev so bile zabeležene vsak 1. dan v mesecu.
+
+Poleg valutnih tečajev si bomo v začetku analize ogledali še razpršenost posameznih valut po državah. 
+
+***
+
+# Analiza in vizualizacija podatkov
+
+```{r vizualizacija, echo=FALSE, message=FALSE, warning=FALSE}
+source("vizualizacija/vizualizacija.r", encoding = "UTF-8")
+source("analiza/analiza.r", encoding = "UTF-8")
+```
+Tukaj bomo obravnavali kar 165 različnih valut, s katerimi se trenutno vahko trguje v posameznih državah sveta.Na spodnjem grafu so prikazane valute, ki se uporavljajo v več kot zgolj eni sami državi. Pri tem je na prvem mestu Euro, saj se uporablja v večini europskih držav, sledi pa mu Ameriški dolar.
+
+```{r graf1, echo=FALSE, message=FALSE, warning=FALSE}
+graf1 <- plot_ly() %>%
+  add_trace(data=pogoste.valute, x= ~vars, y=~n, name= ~ime, type = 'bar') %>%
+  layout(title = 'Valute, ki se uporabljajo v več kot 1 državi', 
+       xaxis = list(title = "Valute", tickangle = 45),
+       yaxis = list (title = "Šrevilo držav v katerih se uporabljajo")
+  )
+graf1 
+```
+
+```{r zemljevid1, echo=FALSE,out.width = '100%',height=40000, message=FALSE, warning=FALSE, fig.align='center', fig.cap=''}
+valute.svet <- ggplot() + geom_polygon(data = valute.po.svetu,
+                                       aes(x=long, y = lat, group = group,fill=valuta)) + coord_fixed(1.3) +
+  theme(legend.text = element_text(size=3), legend.key.size =  unit(0.09, "in")) +
+  ggtitle("Nacionalne valute držav") +
+  geom_text(data= izpisi.centri,
+            aes(x = x, y = y, label = valuta),
+            alpha = 1,
+            color = "black",
+            size = 1)
+valute.svet
+```
+Zgornji zemljevid prikazuje katere valute se uporabljajo v posameznih državah.  Za države, v katerih se uporablja večje število valut, je na zemljevidu označena zgolj ena sama. Zato dodajamo že spodnjo preglednico, ki izpostavlja omenjene dtžave.
+
+```{r tabela, echo=FALSE, out.width = '100%', message=FALSE, warning=FALSE, fig.align='center', fig.cap=''}
+drzave.z.vec.valutami
+```
+
+```{r graf2, echo=FALSE, message=FALSE, warning=FALSE}
+gibanjaTecajev <- ggplot(tecajiSPovprecjem, aes(x= povprecje, y= tecaj, frame = datum, color=kratica)) +
+  ggtitle("Gibanje valutnih tečajev v času") +
+  xlab("Povprečna višina tečaja") +
+  ylab("Visina tecaja glede na čas") +
+  theme(legend.position="none") +
+  geom_point() +
+  geom_text(data=tecajiSPovprecjem,
+            aes(x= povprecje, y= tecaj, label=kratica),
+            size = 1)
+
+gibanjaTecajev
+#gg_animate(gibanjaTecajev)
+```
+
+***
+
+Preostanek analize se nahaja v Shiny aplikaciji.
+***
+
+```{r shiny, echo = FALSE, warning=FALSE}
+shinyAppDir("shiny", options=list(width="100%", height=800))
+```
