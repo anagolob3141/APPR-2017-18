@@ -1,5 +1,5 @@
 ---
-title: "Poročilo pri predmetu Analiza podatkov s programom R"
+title: "Valute in devizni tečaji"
 author: "Ana Golob"
 output:
   html_document: default
@@ -9,6 +9,7 @@ output:
     latex_engine: xelatex
 runtime: shiny
 ---
+## Poročilo pri predmetu Analiza podatkov s programom R
 
 ```{r setup, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
 # Uvoz vseh potrebnih knjižnic
