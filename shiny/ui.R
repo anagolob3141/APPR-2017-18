@@ -22,8 +22,7 @@ shinyUI(fluidPage(
       
       tabsetPanel(type = "tabs",
                   tabPanel("Gibanje valutnih tečajev",plotlyOutput(outputId = "gra1"), textOutput("opis1")),
-                  tabPanel("Nihanje in povprečje",plotlyOutput(outputId = "gra2"), textOutput("opis2")),
-                  tabPanel("Zemljevid",plotOutput(outputId = "gra3"), textOutput("opis3"))
+                  tabPanel("Nihanje in povprečje",plotlyOutput(outputId = "gra2"), textOutput("opis2"))
       )
     )
   )
