@@ -20,6 +20,8 @@ source("lib/libraries.r", encoding = "UTF-8")
 
 ***
 
+V projektni nalogi bom analizirala gibanje menjalnih tečajev med valutami. Najprej bo predstavljeno, katere valute se uporabljajo v posameznih državah, ter nekaj splošnih zanimivosti o valutnih tečajih. Nato bo kot glavna valuta izbran Ameriški dolar. Opazovali bom višino in gibanje menjalnih tečajev za nakup 1 USD z drugimi denarnimi valutami.
+
 ```{r uvoz, echo=FALSE, message=FALSE, warning=FALSE}
 source("uvoz/uvoz.r", encoding = "UTF-8")
 ```
