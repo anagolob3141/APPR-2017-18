@@ -1,5 +1,5 @@
 # 2. faza: Uvoz in čiščenje podatkov
-
+source("lib/libraries.r", encoding = "UTF-8")
 # Vsi podatki so zajeti iz spletnih strani oblike: 
 # http://www.xe.com/currencytables/?from=USD&date= (datumi so različni)
 # ter iz Wikipedije
@@ -64,9 +64,10 @@ valute.po.drzavah$drzava <- gsub("United Kingdom","UK",valute.po.drzavah$drzava)
 
 url2 <- "https://en.wikipedia.org/wiki/Developing_country"
 stran2 <- html_session(url2) %>% read_html()
-v.razvoju <- stran2 %>% html_nodes(".column-count-4 a") %>% html_text()
-drzave.v.razvoju <- subset(valute.po.drzavah, drzava %in% v.razvoju)
+v.razvoju <- stran2 %>% html_nodes(xpath='//*[contains(concat( " ", @class, " " ), concat( " ", "column-width", " " ))]//li') %>% html_text()
+v.razvoju <- gsub("\\s","",v.razvoju)
 
+drzave.v.razvoju <- subset(valute.po.drzavah, drzava %in% as.vector(v.razvoju), select=c("drzava","valuta"))
 
 # seznam 7ih valut v katerih se največ trgije:
 najvecje <- c("EUR", "GBP", "CHF", "CAD", "AUD", "ZAR", "JPY","USD")
