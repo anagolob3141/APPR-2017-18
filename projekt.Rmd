@@ -94,25 +94,76 @@ Zimbabve je včasih imelo svojo državno valuto Zimbabvijski dolar (ZWD). Vendar
 
 Pri drugih državah je večje število valut posledica različnih dejavnikov. Opaziti je zgodovinski vpliv, vpliv povezovanja med različnimi državami. Poleg tega pa je na sesznamu kar nekaj manjšik otoških držav, ki se preživjlajo s turizmom.
 
-Spodja amplikacija želi zajeti dinamiko gibanja deviznih tečajov in omogočiti opazovanje koreliranosti med gibanji vrednosti različnih valut.
-
-```{r graf2, echo=FALSE, message=FALSE, warning=FALSE}
-gibanjaTecajev <- ggplot(tecajiSPovprecjem, aes(x= povprecje, y= tecaj, frame = datum, color=kratica)) +
-  ggtitle("Gibanje valutnih tečajev v času") +
-  xlab("Povprečna višina tečaja") +
-  ylab("Visina tecaja glede na čas") +
-  theme(legend.position="none") +
-  geom_point() +
-  geom_text(data=tecajiSPovprecjem,
-            aes(x= povprecje, y= tecaj, label=kratica),
-            size = 1)
-
-gibanjaTecajev
-#gg_animate(gibanjaTecajev)
-```
 
 ***
 
 ```{r shiny, echo = FALSE, warning=FALSE}
 shinyAppDir("shiny", options=list(width="100%", height=800))
+```
+
+
+# Napved gibanja tečaja USD/EUR z modelom Ornstein-Uhlenbeck
+
+Na podlagi preteklih podatkov lahko s kalibracijo dobimo napoved gibanja časovne vrste. V našem primeru bomo uporabili model Ornstein-Uhlenbeck, ki se ga standardno uporablja za valutno tveganje. Gre za model, ki predpostavlja, da se modelirana časovna vrsta vrača k nekemu dolgoročnemu povprečju.
+
+Model Ornstain-Uhlnbeck sledi naslednji stohastični diferencialni enačbi:
+
+\begin{equation}\label{ouproces}
+dx_t = \alpha(\theta - x_t)dt + \sigma dW_t,
+\end{equation}
+
+Enačba je sestavljena iz dveh delov. Prvi, $\alpha(\theta - x_t)dt$, zajema vračanje k povprečju, drugi pa predstavlja volatilnost s pomočjo Brownovega gibanja. Če za modeliranje finančnih časovnih vrst uporabimo ta model predpostavljamo, da imajo naši podatki tendenco vračanja k nekemu dolgoročnemu povprečju, ki je v modelu predstavljen s parametrom $\theta$. $\alpha$ opisuje hitrost vračanja, $\sigma$ pa volatilnost.
+
+Našo časovno vrsto bomo z modelom simulirali tako, da bomo na zgodovinskih podatkih ocenili vrednosti parametrov $\alpha$, $\theta$ ter $\sigma$.
+
+```{r casovna vrsta, echo=FALSE, out.width = '100%', message=FALSE, warning=FALSE}
+ggplot(EUR_USD, aes(datumi, value)) + geom_line() + xlab("") + ylab("Tečaj EUR/USD") + ggtitle("Časovna vrsta tečaje EUR/USD (po mesecih)")
+```
+
+Naš model ima dve predpostavki, ki ju želimo preveriti na podatkih preden začnemo s kalibracijo. Prva je, da morajo biti prirastki časovne vrste, ki jo modeliramo normalno porazdeljeni. Druga predpostavka pa je, da morajo biti podatki stacionarni. To pomeni, da se se njihova skupna porazdelitev ne sme spremeni pri časovnem zamiku.
+
+Test normalnosti prirastkov bomo izvecli grafično s prikazom histograma ter QQ-plota.
+
+
+```{r histogram, echo=FALSE, out.width = '98%', message=FALSE, warning=FALSE}
+par(mfrow = c(1,2))
+
+hist(EUR_USD[,3], n=50, xlim = c(-0.2, 0.2))
+
+qqgraf <- qqnorm(EUR_USD[,3], ylim = c(-0.2, 0.2))
+qqline(EUR_USD[,3], lwd = 2, col = "red")
+legend("topleft", legend=c("Idealna normalna porazdelitev", "podatki"),
+      col=c("red3", "black"), lty=1:2, cex=0.8)
+```
+
+Iz zgornjih dveh grafiv lahko vidimo, da so prirastki približno normalno porazdeljeni. Preostane nam še preverjanje stacionarnosti. To bomo storili s statističnim testom \textit{Augmented Dickey - Fuller}. Gre za test, ki je sestavljen tako, da je alternativna hipoteza prisotnost stacionarnosti, zato želimo ničelno hipotezo zavrniti. Zavrnemo jo, če je $p$ - vrednost, katero test vrne, izredno majhna (običajno želimo pod 0.05).
+
+
+```{r ADF-test, echo=FALSE, out.width = '100%', message=FALSE, warning=FALSE}
+adf.test(EUR_USD[,2])
+```
+
+
+Ker je $p$ - vrednost testa precej velika o stacionarnosti podatkov ne moremo sklepati. Kljub temu jih bomo poizkusili modelirati z modelom Ornstein-Uhlenbeck.
+
+S kalibracijo podatkov dobimo naslednje cenilke parametrov modela.
+
+```{r cenilke, echo=FALSE, out.width = '100%', message=FALSE, warning=FALSE}
+cat(sprintf("Cenilka za alpho: %.8f\n", alpha))
+cat(sprintf("Cenilka za theto: %.8f\n", theta))
+cat(sprintf("Cenilka za sigmo: %.8f\n", sigma))
+```
+
+Najprej naredimo primerjavo med napovedjo modela in preteklimi podatki. Želimo si, da bi naša napoved čimbolj zajela oz. pokrila zgodovinsko časovno vrsto. Na ta način intuitivno presodimo neustreznost modela. 
+
+```{r simulacija, echo=FALSE, out.width = '100%', message=FALSE, warning=FALSE}
+ggplot(meltdf,aes(x=date,y=value,colour=variable,group=variable)) + geom_line() +
+  ggtitle("Petnajst simulacij tecaja EUR/USD z modelom Ornstein-Uhlnbeck")
+```
+Vidimo da naš model zgodovinsko časovno vrsto v večji meri pokriva. Torej nimamo večjih zadržkov, da za napoved modela Ornstein-Uhlnbeck ne bi uporabili.
+
+Če si na koncu pogledamo še intervale zaupanja, ki jih dobimo če z modelom simuliramo 200 časovnih vrst tečaja EUR/USD.
+
+```{r intervali zaupanja, echo=FALSE, out.width = '100%', message=FALSE, warning=FALSE}
+esgplotbands(y, xlab = "Čas", ylab = "Tečaj EUR/USD", main= "Intervalsko pokritje")
 ```
