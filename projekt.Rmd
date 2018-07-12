@@ -42,6 +42,8 @@ Poleg valutnih tečajev smo zajeli tudi podatke o tem katere valute uporabljajo 
 
 Na ta način smo želeli opazovati ali so valute znotraj posamezne skupine bolj korelirane. Države smo uvrskili v skupino držav v razvoju glede na seznam, ki je bil določen po "International Monetary Fund's World Economic Outlook Report" aprila 2015.
 
+V drugem delu analize želimo napovedati gibanje tečaja EUR/USD v prigodnih nekaj letih. Za napovedovanje bomo uporabili model Ornstein-Uhlnbeck, ki predpostavlja, da je v modeliranih časovnih vrstah prisotna tendenca vračanja k nekemu dolgoročnemu povprečju. Ta model naj bi bil (sodeč po literaturi) ustrezen za področje tečajnih tveganj.
+
 ***
 
 # Analiza in vizualizacija podatkov
