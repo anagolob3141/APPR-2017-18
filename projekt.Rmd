@@ -167,9 +167,7 @@ Na grafu je 15 simulacij primerjanih s tečajem med leti 2008 in 2011. Vidimo da
 Na koncu si poglejmo še intervale zaupanja, ki jih dobimo če z modelom simuliramo 200 časovnih vrst tečaja EUR/USD za obdobje treh let naprej.
 
 ```{r vec simulacij, echo=FALSE, out.width = '100%', message=FALSE, warning=FALSE}
-simdiff(n = 200, horizon = 3, frequency = "monthly", model = "OU", 
-             x0 = EUR_USD[nrow(EUR_USD),2], theta1 = alpha*theta, 
-             theta2 = alpha, theta3 = sigma)
+matplot(time(y), y, type = "l", main = "200 simulacij tečaja EUR/USD")
 ```
 
 ```{r intervali zaupanja, echo=FALSE, out.width = '100%', message=FALSE, warning=FALSE}
