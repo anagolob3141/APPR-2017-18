@@ -54,7 +54,7 @@ shinyServer(function(input, output) {
                 showlegend = F, type = 'bar') %>%
       layout(title = 'Nihanje in povprečna višina tečajev', 
              xaxis = list(title = "Valute", tickangle = 45, showticklabels = FALSE),
-             yaxis = list (title = "", range = input$ymax)
+             yaxis = list (title = "", range = input$ymax2)
       )
     subplot(nrows = 2, shareX = TRUE, shareY = TRUE,odkloni, povprecje)  %>% 
       layout(annotations = list(list(x = 0.5 , y = 1,text = "Standardni odklon / povprčna višina tečaja", showarrow = F,xref='paper', yref='paper'),
@@ -63,13 +63,11 @@ shinyServer(function(input, output) {
   })
   
   
-  
   output$opis1 <- renderText({"Graf prikazuje gibanje tečajev za nakup 1 USD s preostalimi svetovnimi valutami."})
   output$opis2 <- renderText({"Za mero nihanja valut v obdobju od začetka leta 1998 do začetka leta 2018 
     smo uporabili standatdni odklon od povprečja in ga normirali z povprečno vrednostjo valutnih tečajev. 
     Na zemljevidu so z različnimi barvami označene valute držav v razvoju ter največje svetovne valute."})
+  
+  
+  
 })
-
-
-
-
