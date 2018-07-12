@@ -162,9 +162,15 @@ Najprej naredimo primerjavo med napovedjo modela in preteklimi podatki. Želimo 
 ggplot(meltdf,aes(x=date,y=value,colour=variable,group=variable)) + geom_line() +
   ggtitle("Petnajst simulacij tecaja EUR/USD z modelom Ornstein-Uhlnbeck")
 ```
-Vidimo da naš model zgodovinsko časovno vrsto v večji meri pokriva. Torej nimamo večjih zadržkov, da za napoved modela Ornstein-Uhlnbeck ne bi uporabili.
+Na grafu je 15 simulacij primerjanih s tečajem med leti 2008 in 2011. Vidimo da naš model zgodovinsko časovno vrsto v večji meri pokriva. Torej nimamo večjih zadržkov, da za napoved modela Ornstein-Uhlnbeck ne bi uporabili.
 
-Če si na koncu pogledamo še intervale zaupanja, ki jih dobimo če z modelom simuliramo 200 časovnih vrst tečaja EUR/USD.
+Na koncu si poglejmo še intervale zaupanja, ki jih dobimo če z modelom simuliramo 200 časovnih vrst tečaja EUR/USD za obdobje treh let naprej.
+
+```{r vec simulacij, echo=FALSE, out.width = '100%', message=FALSE, warning=FALSE}
+simdiff(n = 200, horizon = 3, frequency = "monthly", model = "OU", 
+             x0 = EUR_USD[nrow(EUR_USD),2], theta1 = alpha*theta, 
+             theta2 = alpha, theta3 = sigma)
+```
 
 ```{r intervali zaupanja, echo=FALSE, out.width = '100%', message=FALSE, warning=FALSE}
 esgplotbands(y, xlab = "Čas", ylab = "Tečaj EUR/USD", main= "Intervalsko pokritje")
