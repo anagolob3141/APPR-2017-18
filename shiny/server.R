@@ -25,14 +25,6 @@ shinyServer(function(input, output) {
     
   })
   
-  
-  xaxis = list(title = "", type = 'date', rangeselector = list(
-    buttons = list(
-      list(count = 30, label = "30 days", step = "day", stepmode = "backward")
-      , list(step = "all", label = 'All')
-    )
-  )) 
-  
   output$gra2 <- renderPlotly({
     
     if (input$primer == "Valute vseh držav"){ 
@@ -67,7 +59,5 @@ shinyServer(function(input, output) {
   output$opis2 <- renderText({"Za mero nihanja valut v obdobju od začetka leta 1998 do začetka leta 2018 
     smo uporabili standatdni odklon od povprečja in ga normirali z povprečno vrednostjo valutnih tečajev. 
     Na zemljevidu so z različnimi barvami označene valute držav v razvoju ter največje svetovne valute."})
-  
-  
   
 })
