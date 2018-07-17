@@ -19,7 +19,6 @@ shinyServer(function(input, output) {
              xaxis = list(title = "Datum",tickangle = 45, type = "date", rangeselector = list(
                buttons = list(
                  list(step = "year")
-                 , list(step = "all", label = 'All')
                ))),
              yaxis = list (title = "Višina tečaja", range = input$ymax))
     
