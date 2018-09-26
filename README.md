@@ -1,7 +1,7 @@
 # Devizni tečaji
 ## Projekt pri predmetu Analiza podatkov s programom R
 
-V projektni nalogi bom analizirala gibanje menjalnih tečajev med valutami. Najprej bo predstavljeno, katere valute se uporabljajo v posameznih državah, ter nekaj splošnih zanimivosti o valutnih tečajih. Nato bo kot glavna valuta izbran Ameriški dolar. Opazovali bom višino in gibanje menjalnih tečajev za nakup 1 USD z drugimi denarnimi valutami.
+V projektni nalogi bom analizirala gibanje menjalnih tečajev med valutami. Najprej bo predstavljeno, nekaj osnovnih podatkov o valutnih tečajih in dravah v katerih se uporabljajo. V drugem delu pa bomo s pomočjo stohastičnih modelo Brownovo gibanje in modela Ornstein–Uhlenbeck.
 
 Podatki bodo pridobljeni iz spodnjih spletnih strani:
 * http://www.xe.com/currencytables/?from=EUR&date=2017-11-01
