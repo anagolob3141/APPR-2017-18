@@ -18,7 +18,7 @@ tabela 2: kratica valute, ime valute <br />
 tabela 3: kratica valute, drzava, skupina <br />
 tabela 4: kratica valute, povprecje, normiran.odklon, skupina                    
 
-CILJ ANALIZE: Primerjava vrednosti menjalnih tečajev med posameznimi valutami. Opazovanje koreliranosti med stabilnostjo valut, ki jih uporabljajo v državah različnih skupin (npr. države v rozvoju, gospodarske velesile...). Ter narediti napoved gibanja tećaj EUR/USD s primernim modelom.
+CILJ ANALIZE: Primerjava vrednosti menjalnih tečajev med posameznimi valutami. Opazovanje koreliranosti med stabilnostjo valut, ki jih uporabljajo v državah različnih skupin (npr. države v rozvoju, gospodarske velesile...). Ter narediti napoved gibanja tečaja EUR/USD s primernim modelom.
 
 ## Program
 
