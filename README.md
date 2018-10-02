@@ -1,7 +1,7 @@
 # Devizni tečaji
 ## Projekt pri predmetu Analiza podatkov s programom R
 
-V projektni nalogi bom analizirala gibanje menjalnih tečajev med valutami. Najprej bo predstavljeno, nekaj osnovnih podatkov o valutnih tečajih in dravah v katerih se uporabljajo. V drugem delu pa bomo s pomočjo stohastičnih modelo Brownovo gibanje in modela Ornstein–Uhlenbeck narejena napoved gibanja tečajev za naprej.
+V projektni nalogi bom analizirala gibanje menjalnih tečajev med valutami. Najprej bo predstavljeno, nekaj osnovnih podatkov o valutnih tečajih in državah v katerih se uporabljajo. V drugem delu pa bomo s pomočjo stohastičnih modelo Brownovo gibanje in modela Ornstein–Uhlenbeck narejena napoved gibanja tečajev za naprej.
 
 Podatki bodo pridobljeni iz spodnjih spletnih strani:
 * http://www.xe.com/currencytables/?from=EUR&date=2017-11-01
